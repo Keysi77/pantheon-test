@@ -1,0 +1,42 @@
+<div class="border-bottom">
+  <div class="container">
+    <h1>Population in Slovakia</h1>
+    <p class="font-weight-italic">The table containing data only for the age between 18 to 30 in 1990.</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Age</th>
+          <th scope="col">Males</th>
+          <th scope="col">Females</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let people of populations">
+          <td *ngIf="people.age >= 18 && people.age <= 30 ">
+            {{ people.age }}
+          </td>
+          <td *ngIf="people.age >= 18 && people.age <= 30 ">
+            {{ people.males }}
+          </td>
+          <td *ngIf="people.age >= 18 && people.age <= 30 ">
+            {{ people.females }}
+          </td>
+          <td *ngIf="people.age >= 18 && people.age <= 30 ">
+            {{ people.total }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- BAR & LINE CHARTs -->
+<div class="border-bottom">
+  <div class="container">
+    <h1>Bar chart </h1>
+    <p class="font-weight-italic">Bar chart show data from tab 1.</p>
+    <canvas id="barChart"></canvas>
+    <canvas id="lineChart"></canvas>
+  </div>
+</div>

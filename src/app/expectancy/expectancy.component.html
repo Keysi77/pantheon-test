@@ -1,0 +1,71 @@
+<div class="container">
+  <h1>Life expectancy calculator</h1>
+  <p class="font-weight-italic">This calculator display remaining life expectancy.</p>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <form #f="ngForm" (ngSubmit)="submit(f)">
+          <div class="form-group mx-auto">
+            <label for="age" class="font-weight-bold">Enter you age</label>
+            <input 
+            required 
+            ngModel 
+            name="age" 
+            #age="ngModel" 
+            (change)="log(age)" 
+            pattern="[0-9]+" 
+            id="age" 
+            type="text"
+            class="form-control ">
+            <div class="alert alert-danger" *ngIf="age.touched && !age.valid">
+              <div *ngIf="age.errors.required">Age is required</div>
+              <div *ngIf="age.value > 100 || age.value < 0">Only numbers between 0 to 100</div>
+              <div *ngIf="!age.pattern">Only numbers</div>
+            </div>
+          </div>
+          <div class="form-group mx-auto">
+            <label class="font-weight-bold" for="selectCountry">Choose your country</label>
+            <!-- Pridat data z Jsonu - countries -->
+            <select class="form-control" id="selectCountry"> 
+              <option>Slovak Republic</option>
+              <option>Brazil</option>
+              <option>United Kingdom</option>
+            </select>
+          </div>
+          <div class="form-group mx-auto">
+            <div class="form-group">
+              <label class="font-weight-bold">Pick date</label>
+              <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
+            </div>
+          </div>
+          <div class="form-group mx-auto">
+            <p class="font-weight-bold">select gender</p>
+            <div class="radio">
+              <label for="">
+                <input ngModel type="radio" name="contactMethod" value="1">
+                male
+              </label>
+            </div>
+            <div class="radio">
+              <label for="">
+                <input ngModel type="radio" name="contactMethod" value="2">
+                female
+              </label>
+            </div>
+            <button class="btn btn-success btn-lg btn-block">Calculate</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <h1>You selected: </h1>
+          <p>Age: <span class="font-weight-bold">{{expectancy.age}}</span> </p>
+          <p>Age: <span class="font-weight-bold">{{expectancy.country}}</span> </p>
+          <p>Age: <span class="font-weight-bold">{{expectancy.date}}</span> </p>
+          <p>Age: <span class="font-weight-bold">{{expectancy.sex}}</span> </p>
+          <p>Your remaining life expectancy is: <span class="text-success font-weight-bold fs-2">{{expectancy.remaining_life_expectancy}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
