@@ -7,11 +7,29 @@ import { Chart } from 'chart.js';
   templateUrl: './population.component.html',
   styleUrls: ['./population.component.css']
 })
+
+class Point{
+  x:number;
+  draw(){
+
+  }
+
+  getDistance(another: Point){
+
+  }
+}
+
 export class PopulationComponent implements OnInit {
 
   barChart: [];
   lineChart: [];
   populations: any[];
+
+  draw = (point: Point) =>{
+    point.draw();
+ }
+  point:Point = new Point();
+  
 
   constructor(private http: Http) { }
 
